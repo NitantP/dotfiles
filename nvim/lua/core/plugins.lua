@@ -64,10 +64,7 @@ return packer.startup(function(use)
     -- Files
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
-    use {
-        'nvim-telescope/telescope.nvim',
-        config = require('user.telescope'),
-    }
+    use 'nvim-telescope/telescope.nvim'
     use 'tpope/vim-vinegar'
 
     -- Git
