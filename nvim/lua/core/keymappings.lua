@@ -39,3 +39,11 @@ vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>')
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>')
 vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>')
+vim.keymap.set('n', '<leader>fs', ':Telescope lsp_document_symbols<CR>')
+
+-- | vimux
+vim.keymap.set('', '<leader>vc', ':VimuxClearTerminalScreen<CR>:VimuxPromptCommand<CR>')
+vim.keymap.set('', '<leader>vl', ':VimuxRunLastCommand<CR>')
+vim.keymap.set('', '<leader>vi', ':VimuxInspectRunner<CR>')
+vim.keymap.set('', '<leader>vx', ':VimuxCloseRunner<CR>')
+vim.keymap.set('', '<leader>vC', ':VimuxInterruptRunner<CR>')

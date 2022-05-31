@@ -1,5 +1,8 @@
 local root = vim.fn.expand('~')
 
+-- Clipboard
+vim.opt.clipboard = 'unnamedplus'
+
 -- Undo history
 vim.opt.undodir= root .. '/.vimdid/'
 vim.opt.undofile = true

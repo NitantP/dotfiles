@@ -42,10 +42,7 @@ return packer.startup(function(use)
 
     -- Misc
     use 'tpope/vim-surround'
-    use {
-        'preservim/vimux',
-        config = require('user.vimux'),
-    }
+    use 'preservim/vimux'
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
@@ -68,7 +65,10 @@ return packer.startup(function(use)
     use 'tpope/vim-vinegar'
 
     -- Git
-    use 'lewis6991/gitsigns.nvim'
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = require('user.gitsigns'),
+    }
 
     -- LSP
     use {
@@ -84,7 +84,10 @@ return packer.startup(function(use)
         branch = 'main',
         config = require('user.cmp'),
     }
-    use 'ray-x/lsp_signature.nvim'
+    use {
+        'ray-x/lsp_signature.nvim',
+        config = require('user.lsp_signature'),
+    }
 
     -- | Snippets
     use { 'hrsh7th/cmp-vsnip', branch = 'main' }

@@ -34,11 +34,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', ']d', ':lua vim.diagnostic.goto_next({ float = { border = "single" }})<CR>', opts)
     buf_set_keymap('n', '<space>q', ':lua vim.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap("n", "<space>f", ":lua vim.lsp.buf.format{ async = true }<CR>", opts)
-
-    -- Get signatures (and _only_ signatures) when in argument lists.
-    require "lsp_signature".on_attach({
-        doc_lines = 0,
-    })
 end
 
 lspconfig.rust_analyzer.setup {
