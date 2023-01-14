@@ -1,5 +1,9 @@
 local root = vim.fn.expand('~')
 
+-- Set colorscheme
+vim.opt.termguicolors = true
+vim.cmd [[colorscheme onedark]]
+
 -- Clipboard
 vim.opt.clipboard = 'unnamedplus'
 
@@ -43,6 +47,7 @@ vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect', }
 
 -- | Folding
 vim.opt.foldmethod = 'syntax'
+vim.opt.foldlevelstart = 99
 
 -- | rust
 vim.g['rustfmt_autosave'] = 1
@@ -67,6 +72,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.nu = true
 vim.opt.rnu = true
+vim.opt.mouse = 'a'
+vim.opt.breakindent = true
+vim.opt.signcolumn = 'yes'
 
 vim.cmd [[
     syntax on
@@ -77,49 +85,6 @@ vim.cmd [[
 -- Statusline
 vim.opt.laststatus = 2
 
-local sl_buffer_number = '%1* %n %*'
-local sl_full_path = '%4* %<%F%*' 
-local sl_modified_flag = '%2*%m%*' 
-local sl_current_line = '%1*%=%5l%*'
-local sl_total_lines = '%2*/%L%*'
-local sl_virtual_column_number = '%1*%4v %*'
-local sl_character_under_cursor = '%2*0x%04B %*'
-vim.opt.statusline =
-    sl_buffer_number ..
-    sl_full_path ..
-    sl_modified_flag ..
-    sl_current_line ..
-    sl_total_lines ..
-    sl_virtual_column_number ..
-    sl_character_under_cursor
-
--- GUI
-vim.opt.termguicolors = true
-vim.opt.background = 'dark'
-vim.cmd [[ colorscheme ayu ]]
-
 -- netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
-
--- LSP
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover, {
-        border = "single",
-    }
-)
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help, {
-        border = "single",
-    }
-)
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        signs = true,
-        update_in_insert = true,
-        border = "single",
-    }
-)
