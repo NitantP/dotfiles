@@ -1,13 +1,16 @@
-local config_modules = {
-    'core.plugins',
-    'core.settings',
-    'core.keymappings',
-    'core.autocmd',
-}
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
 
-for _, module in ipairs(config_modules) do
-    local ok, err = pcall(require, module)
-    if not ok then
-        error('Error loading ' .. module .. '\n\n' .. err)
-    end
-end
+require('core.init')
+require('user.init')
+
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
