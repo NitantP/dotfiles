@@ -2,7 +2,7 @@ local root = vim.fn.expand('~')
 
 -- Set colorscheme
 vim.opt.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme moonfly]]
 
 -- Clipboard
 vim.opt.clipboard = 'unnamedplus'
