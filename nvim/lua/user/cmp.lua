@@ -56,11 +56,11 @@ function M.config()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
   end
 
-  -- vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#f8cd8c", bg = "NONE" })
-  -- vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#f8c8dc", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#f8cd8c", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#f8c8dc", bg = "NONE" })
   -- vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#ffc300", bg = "NONE" })
-  -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#ffc300", bg = "NONE" })
-  -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#50c878", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#ffc300", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#ffc300", bg = "NONE" })
 
   cmp.setup {
     snippet = {
@@ -116,7 +116,7 @@ function M.config()
         mode = "text",
         menu = {
           nvim_lsp = "[LSP]",
-          luasnip = "[LuaSnip]",
+          luasnip = "[Snippet]",
           buffer = "[Buffer]",
           path = "[Path]",
           emoji = "[Emoji]",
@@ -126,11 +126,11 @@ function M.config()
       }),
     },
     sources = {
-      { name = "nvim_lsp" },
-      { name = "nvim_lua" },
-      { name = "luasnip" },
-      { name = "buffer" },
-      { name = "path" },
+      { name = "nvim_lsp", priority = 1000 },
+      { name = "nvim_lua", priority = 800 },
+      { name = "luasnip", priority = 600 },
+      { name = "path", priority = 400 },
+      { name = "buffer", priority = 200},
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
