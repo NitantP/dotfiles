@@ -1,0 +1,25 @@
+# Neovim data directory (plugins, caches, etc.)
+# These are managed by lazy.nvim and should not be committed
+
+# Lazy.nvim plugin directory
+lazy-lock.json
+
+# Session files
+*.vim
+*.tmp
+*.swp
+*.swo
+*~
+
+# LSP and language server logs
+lsp.log
+*.log
+
+# Undo history
+*.un~
+
+# Plugin manager files
+plugin/
+
+# Local customizations (if you create them)
+lua/local/
